@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Telnyx SMS — Login</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #f0f2f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+      padding: 40px 36px;
+      width: 360px;
+    }
+
+    h1 {
+      font-size: 22px;
+      font-weight: 700;
+      color: #111;
+      margin-bottom: 6px;
+    }
+
+    .subtitle {
+      font-size: 14px;
+      color: #6b7280;
+      margin-bottom: 28px;
+    }
+
+    label {
+      display: block;
+      font-size: 13px;
+      font-weight: 500;
+      color: #374151;
+      margin-bottom: 6px;
+    }
+
+    input {
+      width: 100%;
+      border: 1px solid #d1d5db;
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.15s;
+      margin-bottom: 16px;
+    }
+
+    input:focus { border-color: #00c48c; }
+
+    button {
+      width: 100%;
+      background: #00c48c;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 12px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.15s;
+      margin-top: 4px;
+    }
+
+    button:hover { background: #00a87a; }
+
+    .error {
+      background: #fef2f2;
+      border: 1px solid #fecaca;
+      color: #dc2626;
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-size: 13px;
+      margin-bottom: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Telnyx SMS</h1>
+    <p class="subtitle">Sign in to continue</p>
+
+    <form method="POST" action="/login" autocomplete="off">
+      <label for="username">Username</label>
+      <input id="username" name="username" type="text" required autofocus />
+
+      <label for="password">Password</label>
+      <input id="password" name="password" type="password" required />
+
+      <div id="error-msg" class="error" style="display:none">
+        Incorrect username or password.
+      </div>
+
+      <button type="submit">Sign in</button>
+    </form>
+  </div>
+
+  <script>
+    if (new URLSearchParams(location.search).get('error')) {
+      document.getElementById('error-msg').style.display = 'block';
+    }
+  </script>
+</body>
+</html>

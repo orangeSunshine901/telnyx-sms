@@ -31,9 +31,25 @@
       background: #00c48c;
       color: #fff;
       padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
 
     header h1 { font-size: 18px; font-weight: 600; }
+
+    .logout-btn {
+      background: rgba(255,255,255,0.2);
+      border: none;
+      color: #fff;
+      font-size: 13px;
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+
+    .logout-btn:hover { background: rgba(255,255,255,0.35); }
 
     .to-bar {
       display: flex;
@@ -142,6 +158,9 @@
   <div class="container">
     <header>
       <h1>Telnyx SMS</h1>
+      <form method="POST" action="/logout">
+        <button class="logout-btn" type="submit">Sign out</button>
+      </form>
     </header>
 
     <div class="to-bar">
