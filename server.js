@@ -15,6 +15,7 @@ const app = express();
 const httpServer = createServer(app);
 const io = new Server(httpServer);
 
+app.set('trust proxy', 1); // Required for secure cookies behind Railway's proxy
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(session({
